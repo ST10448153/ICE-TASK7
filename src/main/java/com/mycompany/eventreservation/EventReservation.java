@@ -11,6 +11,7 @@ package com.mycompany.eventreservation;
  import java.util.Scanner;
 
 public class EventReservation {
+    //this are the global variables
    public static String code = "22439_17";
    public static String passWord1 = "@Tim769gohy";
     public static boolean checkBookingCode(){
