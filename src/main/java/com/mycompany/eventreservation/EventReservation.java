@@ -26,7 +26,35 @@ public class EventReservation {
         return bookingCode.contains("_") && bookingCode.length()<12;
        
     }
-    
+     public static boolean checkPasswordComplexity() {
+         
+         /*this boolean method returns true if the password entered by user satisfy the requirements
+         of capital letter, length of 8 characters, special character and contains a number.*/
+         String password;
+         System.out.println("Enter password>>");
+         Scanner obj = new Scanner(System.in);
+         password = obj.nextLine();
+        boolean checkDigit = false;
+        boolean hasUppercase = false;
+        boolean hasSpecialChar = false;
+        /*below we run a loop through the password characters one by one, checking for 
+        the required conditions*/
+        for (char c : password.toCharArray()) {
+            if (Character.isDigit(c)) {
+                checkDigit = true;
+            } else if (Character.isUpperCase(c)) {
+                hasUppercase = true;
+            } else if (!Character.isLetterOrDigit(c)) {
+                hasSpecialChar = true;
+            }
+
+            //if the conditions below are met then this method returns true otherwise it returns false.
+            if (checkDigit && hasUppercase && hasSpecialChar && password.length()>=8) {
+                return true;
+            }
+        }
+        return true;
+     }
      public static String makeReservation(){
          String bookingCode;
          Scanner obj = new Scanner(System.in);
